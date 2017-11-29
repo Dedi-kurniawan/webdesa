@@ -1,0 +1,40 @@
+/* Costume Css By Gandi N3
+ *
+ * Date 18 Agustus 2017
+ * Author : Gandi
+ * Standar Lisensi Lokal
+ */
+body {
+   background: #eaeaea;
+}
+
+
+.logo-menu {
+   height: 150px;
+   width: 150px;
+   margin-top:10px;
+}
+
+.logo-menu:hover {
+   height:200px;
+   width:200px;
+}
+
+.tebal {
+   font-weight:bold;
+}
+
+
+.daftar {
+}
+
+.daftar-menu {
+   padding:20px 20px;
+   background:white;
+   text-align:center;
+   box-shadow: 0px 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+p.judul {
+}
+
