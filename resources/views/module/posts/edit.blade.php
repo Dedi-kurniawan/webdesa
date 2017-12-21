@@ -15,9 +15,9 @@
             </div>
 
             <div class="x_content"><br />
-              {!! Form::model($posts, ['route' => ['post.update', $posts->id], 'files' => true, 'method' => 'put', 'class' => 'form-horizontal']) !!}
-                  @include('module.posts._form')
-              {!! Form::close() !!}
+                {!! Form::model($posts, ['route' => ['post.update', $posts->id], 'files' => true, 'method' => 'put', 'class' => 'form-horizontal']) !!}
+                @include('module.posts._form')
+                {!! Form::close() !!}
             </div>
           </div>
         </div>

@@ -27,7 +27,9 @@
                   <div class="x_title">
                     <h2>Agenda Desa</h2>
                     <ul class="nav navbar-right panel_toolbox">
-                       <a href="{{ route('agenda.create') }}"><button class="btn btn-primary btn-md">Tambah</button></a>
+                      @can('tambah_agenda')
+                       <a href="{{ route('notes.create') }}"><button class="btn btn-primary btn-md">Tambah</button></a>
+                      @endcan
                     </ul>
                     <div class="clearfix"></div>
                   </div>
@@ -55,13 +57,19 @@
                           <td>{{ $not->FinishAdmin }}</td>
                           <td>{{ $not->lokasi }}</td>
                           <td>
-                            <a href="{{ url($not->ImagePath) }}" target="blank" class="btn btn-success btn-xs"><i class="fa fa-file-photo-o"></i> Gambar</a>
+                            <a href="{{ url($not->ImageTumb) }}" target="blank" class="btn btn-success btn-xs"><i class="fa fa-file-photo-o"></i> Gambar</a>
                           </td>
                           <td>
-                            {!! Form::open(['route' => ['agenda.destroy', $not->id], 'method' => 'DELETE']) !!}
-                            <a href="{{ route ('agenda.edit',$not->id) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                            {!! Form::open(['route' => ['notes.destroy', $not->id], 'method' => 'DELETE']) !!}
+                            @can('edit_agenda')
+                            <a href="{{ route ('notes.edit',$not->id) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                            @endcan
+
+                            @can('hapus_agenda')
                             <button type="submit"  class="btn btn-danger btn-xs" onclick="return confirm('Apakah kamu yakin ingin Menghapus data ini')" ><i class="fa fa-trash-o"></i> Hapus </a>
                             </button>
+                            @endcan
+
                             {!! Form::close() !!}
                           </td>
                         </tr>
@@ -73,7 +81,6 @@
               </div>
             </div>
           </div>              
-
 @endsection
 
  

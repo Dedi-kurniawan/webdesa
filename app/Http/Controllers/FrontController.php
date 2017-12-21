@@ -8,6 +8,8 @@ use App\About;
 use App\Note;
 use App\Post;
 use App\Category;
+use App\Member;
+use App\Service;
 
 class FrontController extends Controller
 {
@@ -25,9 +27,9 @@ class FrontController extends Controller
         $populerkiri = Post::orderBy('created_at', 'des')->paginate(2);
         $populerkanan = Post::orderBy('created_at', 'asc')->paginate(2);
 
-        $category = category::all();
+        // $category = category::all();
 
-    	return view('/welcome', compact('bannersatu', 'bannerdua', 'agenda', 'kegiatan', 'berita', 'populerkiri', 'populerkanan', 'category'));
+    	return view('/welcome', compact('bannersatu', 'bannerdua', 'agenda', 'kegiatan', 'berita', 'populerkiri', 'populerkanan'));
     }
 
     public function visi()
@@ -45,23 +47,73 @@ class FrontController extends Controller
     	return view('module.fronts.sejarah', compact('sejarah'));
     }
 
-    public function agenda()
+    public function perangkatdesa()
     {
-        $agenda = Note::paginate(3);
+        $perangkat = Member::all();
 
-        return view('module.fronts.agenda', compact('agenda'));
+        return view('module.fronts.perangkatdesa', compact('perangkat'));
     }
 
-    public function blog()
+    public function blogall()
     {
-        $blog = Post::orderBy('created_at', 'asc')->paginate(8);
-
+        $blog = Post::paginate(12);
         return view('module.fronts.blog', compact('blog'));
     }
 
-    public function category()
+    public function blog($slug)
     {
-        $category = category::all();
-        return view('layouts.aquarius.patrials.header', compact('category'));
+        $blog = Category::where('slug', $slug)
+                        ->first()
+                        ->posts()
+                        ->paginate(12);
+        return view('module.fronts.blog', compact('blog'));
     }
+
+    public function blogpost($slug)
+    {
+        $recent = Post::orderBy('created_at', 'des')->get();
+        $categories = Category::with('posts')
+                              ->orderBy('title', 'asc')
+                              ->get();
+        $post = Post::where('slug', $slug)->first();
+        return view('module.fronts.showblog', compact('post', 'categories', 'recent'));
+    }
+
+    public function agenda()
+    {
+        $agenda = Note::paginate(5);
+        return view('module.fronts.agenda', compact('agenda'));
+    }
+
+    public function agendapost($slug)
+    {
+        $agendapost = Note::where('slug', $slug)->first();
+        return view('module.fronts.showagenda', compact('agendapost'));
+    }
+
+    public function kependudukan()
+    {
+        $kependudukan = Service::where('layanan', 1)->orderBy('created_at', 'asc')->paginate(8);
+        return view('module.fronts.kependudukan', compact('kependudukan'));
+    }
+
+    public function kependudukanpost($slug)
+    {
+        $kependudukanpost = Service::where('slug', $slug)->first();
+        return view('module.fronts.showkependudukan', compact('kependudukanpost'));
+    }
+
+    public function perijinan()
+    {
+        $perijinan = Service::where('layanan', 2)->orderBy('created_at', 'asc')->paginate(8);
+        return view('module.fronts.perijinan', compact('perijinan'));
+    }
+
+    public function perijinanpost($slug)
+    {
+        $perijinanpost = Service::where('slug', $slug)->first();
+        return view('module.fronts.showperijinan', compact('perijinanpost'));
+    }
+
+
 }

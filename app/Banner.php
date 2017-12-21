@@ -35,16 +35,6 @@ class Banner extends Model
         return \Carbon\Carbon::parse($this->attributes['created_at'])->format('d-M-Y');
     }
 
-    public function getContentAdminAttribute()
-    {
-        return substr($this->content,0,30);
-    }
-
-    public function getTitleAdminAttribute()
-    {
-        return substr($this->title,0,30);
-    }
-
     public function getStatusAdminAttribute()
     {
         if ($this->status == 1) 

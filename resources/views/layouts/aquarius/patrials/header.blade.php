@@ -7,23 +7,14 @@
                 <div class="col-md-6">
                     <div class="language">        
                         <ul class="flat-information">
-                            <li class="email"><a href="mailto:AlitStudios@gmail.com">desasukajadi@gmail.com</a></li>
-                            <li class="phone"><a href="61383766284">+61 3 8376 6284</a></li>
-                            {{-- <li class="current"><a href="#">English</a>
-                                <ul>  
-                                    <li class="en"><a href="#">English</a></li>
-                                    <li class="ge"><a href="#">German</a></li>
-                                    <li class="pl"><a href="#">Polish</a></li>
-                                    <li class="ru"><a href="#">Russian</a></li>
-                                </ul>
-                            </li> --}}
+                            <li class="email"><a href="#">desasukajadi@gmail.com</a></li>
+                            <li class="phone"><a href="#">+61 3 8376 6284</a></li>
                         </ul>
                     </div><!-- /.language -->
                 </div><!-- /.col-md-6 -->   
                 <div class="col-md-6">
                     <div class="top-navigator">
                         <ul>
-                            {{-- <li><a href="#">Register</a></li> --}}
                             <li><a href="{{ '/login' }}">Login</a></li>
                         </ul>
                     </div><!-- /.top-navigator --> 
@@ -39,7 +30,7 @@
                 <div class="row">
                     <div class="col-md-2">
                         <div id="logo" class="logo">
-                            <a href="index.html" rel="home">
+                            <a href="{{ url('/home') }}" rel="home">
                                 <img src="{{ asset('front/images/logo.png') }}" alt="image">
                             </a>
                         </div><!-- /.logo -->
@@ -58,23 +49,23 @@
                                         <ul class="submenu right-sub-menu"> 
                                             <li ><a href="{{ url('/profile/visi-misi') }}">Visi Dan Misi</a></li>
                                             <li ><a href="{{ url('/profile/sejarah') }}">Sejarah</a></li>
-                                            <li ><a href="{{ url('/perangkatdesa') }}">Perangkat Desa</a></li>  
+                                            <li ><a href="{{ url('/profile/perangkatdesa') }}">Perangkat Desa</a></li>  
                                         </ul><!-- /.submenu -->
                                     </li>
-                                    <li><a href="blog.html">Blog Desa</a>
+                                    <li><a href="{{ route('blogall') }}">Blog Desa</a>
                                         <ul class="submenu right-sub-menu"> 
-                                            @foreach($categories as $men)
-                                            <li><a href="{{ url('/blog') }}">{{ $men->title }}</a></li>
+                                            @foreach($categories as $category)
+                                                <li><a href="{{ route('blog', $category->slug) }}">{{ $category->title }}</a></li>
                                             @endforeach       
                                         </ul><!-- /.submenu -->
                                     </li>
-                                    <li><a href="#">Gallery</a>
+                                    <li><a href="#">Layanan Desa</a>
                                         <ul class="submenu right-sub-menu">
-                                            <li><a href="gallery_v1.html">Gallery 01</a></li>
-                                            <li><a href="gallery_v2.html">Gallery 02</a></li>
+                                            <li><a href="{{ route('perijinan') }}">Layanan Perizinan</li>
+                                            <li><a href="{{ route('kependudukan') }}">Layanan Kependudukan</a></li>
                                         </ul><!-- /.submenu -->
                                     </li>                                                
-                                    <li><a href="{{ url('/agendadesa') }}">Agenda</a></li>
+                                    <li><a href="{{ route('agenda') }}">Agenda</a></li>
                                     <li><a href="{{ url('/contact') }}">Contact</a></li>
                                 </ul><!-- /.menu -->
                             </nav><!-- /.mainnav -->  

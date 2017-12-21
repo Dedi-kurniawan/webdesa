@@ -33,8 +33,6 @@
             </ul>
         </div>
     </div>
-
-
     <!-- Flat iconbox left -->
     <section class="flat-row pad-bottom90px">
         <div class="container">
@@ -46,17 +44,16 @@
                             <img src="{{ $keg->ImagePath  }}" alt="image">
                         </div>
                         <div class="content">
-                            <h6 class="title"><a href="#">{{ $keg->titleAdmin }}</a></h6>            
-                            <p>{!! substr($keg->content,0,60) !!}...</p> 
+                            <h7 class="title"><a href="{{ route('blogpost', $keg->slug) }}">{!! substr($keg->title,0,25) !!}</a></h7>            
+                            <p>{!! strip_tags(substr($keg->content,0,50)) !!}...</p> 
                         </div>
-                        <a href="#" class="readmore">Read more</a>
+                        <a href="{{ route('blogpost', $keg->slug) }}" class="readmore">Read more</a>
                     </div><!-- /.flat-iconbox -->
                 </div><!-- /.col-md-3 -->
                 @endforeach
             </div><!-- /.row -->
         </div><!-- /.container -->
     </section>
-
     <!-- Flat fillter courses -->
     <section class="flat-row pad-top95px parallax parallax3 bg-black">
         <div class="overlay"></div>
@@ -121,20 +118,19 @@
             <div class="row">
                 <div class="flat-divider d60px"></div>
             </div>
-
             <div class="row">
                 @foreach($berita as $ber)
                 <div class="col-md-3 col-sm-6 col-xs-6">
                     <div class="flat-courses style1">
                         <div class="courses-thumbnail">
-                            <a href="course_single.html"><img src="{{ $ber->ImagePath}}" alt="image"></a>
+                            <a href="{{ route('blogpost', $ber->slug) }}"><img src="{{ $ber->ImagePath}}" alt="{{ $ber->TitleAdmin }}"></a>
                             <div class="courses-description">
-                                <p class="desc">{!! substr($ber->content,0,100) !!}...</p>
+                                <p class="desc">{!! $ber->title !!}...</p>
                             </div> 
-                            <a class="courses-viewmore" href="course_single.html">Read more</a>
+                            <a class="courses-viewmore" href="{{ route('blogpost', $ber->slug) }}">Read more</a>
                         </div>
                         <div class="courses-content">
-                            <a href="course_single.html"><h6 class="courses-topic">{{ $ber->TitleAdmin }}</h6></a>
+                            <a href="{{ route('blogpost', $ber->slug) }}"><h6 class="courses-topic">{{ $ber->TitleAdmin }}</h6></a>
                         </div>
                         <ul class="courses-meta">
                             <li class="courses-author"><a href="#">{{ $ber->user->name }}</a></li>
@@ -258,7 +254,7 @@
                         </div><!-- /.time-event -->
 
                         <div class="event-wrapper">
-                            <h5 class="title"><a href="#">{{ $ag->title }}</a></h5>
+                            <h5 class="title"><a href="{{ route('agendapost', $ag->slug) }}">{{ $ag->title }}</a></h5>
                             <div class="meta">                                
                                 <div class="location">{{ $ag->lokasi }}</div>
                                 <div class="content">
@@ -273,7 +269,7 @@
         </div><!-- /.container -->
     </section>
     <div class="view-event" style="background-color: #000; text-align: center;">
-        <a href="{{ url('/profile/agenda') }}">Semua Agenda</a>
+        <a href="{{ route('agenda') }}">Semua Agenda</a>
     </div>
 
     <!-- Testimonials style1 -->
@@ -338,11 +334,11 @@
                         
                         <article class="entry clearfix images-left">                       
                             <div class="feature-post">
-                                <a href="blog_single_v2.html"><img src="{{ $popki->ImageTumb }}" alt="image"></a>
+                                <a href="{{ route('blogpost', $popki->slug) }}"><img src="{{ $popki->ImageTumb }}" alt="image"></a>
                             </div><!-- /.feature-post -->
 
                             <div class="main-post">
-                                <h2 class="title-post"><a href="blog_single_v2.html">{{ $popki->title }}</a></h2>
+                                <h2 class="title-post"><a href="{{ route('blogpost', $popki->slug) }}">{{ $popki->title }}</a></h2>
                                 <div class="meta-post clearfix">
                                     <ul>    
                                         <li class="post-author">
@@ -355,7 +351,7 @@
                                     </ul>
                                 </div><!-- /.meta-post -->                                   
                                 <div class="entry-post">
-                                    <p>{!! substr($popki->content,0,250) !!}...<a class="read-more" href="blog_single_v2.html">Read more</a>
+                                    <p>{!! strip_tags(substr($popki->content,0,50)) !!}...<a class="read-more" href="{{ route('blogpost', $popki->slug) }}">Read more</a>
                                     </p>                                    
                                 </div><!-- /.entry-post -->
                             </div><!-- /.main-post -->                            
@@ -364,7 +360,7 @@
                         @foreach($populerkanan as $popka) 
                         <article class="entry clearfix images-right">
                             <div class="main-post">
-                                <h2 class="title-post"><a href="blog_single_v2.html">{{ $popka->title }}/a></h2>
+                                <h2 class="title-post"><a href="{{ route('blogpost', $popka->slug) }}">{{ $popka->title }}</a></h2>
                                 <div class="meta-post clearfix">
                                     <ul>    
                                         <li class="post-author">
@@ -377,19 +373,19 @@
                                     </ul>
                                 </div><!-- /.meta-post -->                                   
                                 <div class="entry-post">
-                                    {!! substr($popka->content,0,250) !!}...<a class="read-more" href="blog_single_v2.html">Read more</a>
+                                    {!! substr($popka->content,0,250) !!}...<a class="read-more" href="{{ route('blogpost', $popka->slug) }}">Read more</a>
                                     </p>                                    
                                 </div><!-- /.entry-post -->
                             </div><!-- /.main-post --> 
 
                             <div class="feature-post">
-                                <a href="blog_single_v2.html"><img src="{{ $popka->ImageTumb }}" alt="image"></a>
+                                <a href="{{ route('blogpost', $popka->slug) }}"><img src="{{ $popka->ImageTumb }}" alt="image"></a>
                             </div><!-- /.feature-post -->                           
                         </article><!-- /.entry -->
                         @endforeach
                     </div><!-- /.post-wrap -->    
                     <div class="load-more">
-                        <a class="flat-button" href="#">Load more</a>
+                        <a class="flat-button" href="#">Selengkapnya..</a>
                     </div>        
                 </div><!-- /.col-md-12 -->
             </div><!-- /.row -->

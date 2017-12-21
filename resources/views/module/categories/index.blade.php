@@ -51,9 +51,13 @@
                           <td>{{ $cat->title }}</td>
                           <td>
                             {!! Form::open(['route' => ['category.destroy', $cat->id], 'method' => 'DELETE']) !!}
+                            @can('edit_berita')
                             <a href="{{ route ('category.edit',$cat->id) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                            @endcan
+                            @can('hapus_berita')
                             <button type="submit"  class="btn btn-danger btn-xs" onclick="return confirm('Apakah kamu yakin ingin Menghapus data ini')" ><i class="fa fa-trash-o"></i> Hapus </a>
                             </button>
+                            @endcan
                             {!! Form::close() !!}
                           </td>
                         </tr>

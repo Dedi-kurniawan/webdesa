@@ -27,7 +27,10 @@
                   <div class="x_title">
                     <h2>Post</h2>
                     <ul class="nav navbar-right panel_toolbox">
+                      @can('tambah_berita')
                        <a href="{{ route('post.create') }}"><button class="btn btn-primary btn-md">Tambah</button></a>
+                      @endcan
+
                     </ul>
                     <div class="clearfix"></div>
                   </div>
@@ -51,17 +54,25 @@
                         <tr>
                           <th scope="row">{{ $no++ }}</th>
                           <td>{{ $pos->titleAdmin }}</td>
-                           <td>{{ $pos->ContentAdmin }}</td>
+                           <td>{!! strip_tags(substr($pos->content,0,250)) !!}...</td>
                            <td>{{ $pos->category->title }}</td>
                           <td>
                             <a href="{{ url($pos->ImagePath) }}" target="blank" class="btn btn-success btn-xs"><i class="fa fa-file-photo-o"></i> Gambar</a>
                           </td>
                           <td>{{ $pos->CreatedAt }}</td>
                           <td>
+
                             {!! Form::open(['route' => ['post.destroy', $pos->id], 'method' => 'DELETE']) !!}
+
+                            @can('edit_berita')
                             <a href="{{ route ('post.edit',$pos->id) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                            @endcan
+
+                            @can('hapus_berita')
                             <button type="submit"  class="btn btn-danger btn-xs" onclick="return confirm('Apakah kamu yakin ingin Menghapus data ini')" ><i class="fa fa-trash-o"></i> Hapus </a>
                             </button>
+                            @endcan
+                            
                             {!! Form::close() !!}
                           </td>
                         </tr>
@@ -74,7 +85,6 @@
               </div>
             </div>
           </div>              
-
 @endsection
 
  

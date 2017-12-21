@@ -667,8 +667,8 @@
     var retinaLogos = function() {
       var retina = window.devicePixelRatio > 1 ? true : false;
         if( retina ) {
-            $( '.header .logo' ).find('img').attr( {src:'./images/logo@2x.png',width:'156',height:'102'} );   
-            $( '.title-section .icon' ).find('img').attr( {src:'./images/icon/line@2x.png',width:'282',height:'24'} );
+            $( '.header .logo' ).find('img').attr( {src:'./front/images/logo@2x.png',width:'156',height:'102'} );   
+            $( '.title-section .icon' ).find('img').attr( {src:'./front/images/icon/line@2x.png',width:'282',height:'24'} );
         }
     };    
     

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use GrahamCampbell\Markdown\Facades\Markdown;
 
 class Post extends Model
 {
@@ -30,17 +31,17 @@ class Post extends Model
         {
             return url('/images/blog/tumb_' . $this->image);
         } else {
-            return url('/images/blog/noimage.png');
+            return url('/images/blog/noimage.jpg');
         }
     }
 
-     public function getImagePathAttribute()
+    public function getImagePathAttribute()
     {
        if ($this->image !== NULL) 
         {
             return url('/images/blog/' . $this->image);
         } else {
-            return url('/images/blog/noimage.png');
+            return url('/images/blog/noimg.jpg');
         }
     }
 
@@ -49,10 +50,10 @@ class Post extends Model
         return substr($this->title,0,30);
     }
 
-    public function getContentHtmlAttribute()
-    {
-       return $this->content ? Markdown::convertToHtml(e($this->content)) : NULL;
-    }
+   public function getContentHtmlAttribute($value)
+   {
+       return strip_tags(substr($this->content,0,200));
+   }
 
     public function getContentAdminAttribute()
     {

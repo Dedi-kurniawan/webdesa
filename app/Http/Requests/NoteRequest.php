@@ -36,7 +36,7 @@ class NoteRequest extends FormRequest
     {
         return [
             'title.required'        => 'Judul Dilarang Kosong',
-            'title.unique'        => 'Judul Catatan Sudah Ada',
+            'title.unique'          => 'Judul Catatan Sudah Ada',
             'content.required'      => 'Conten Dilarang Kosong',
             'lokasi.required'       => 'Lokasi/Tempat tidak boleh Kosong',
             'start_at.required'     => 'Mulai Tidak boleh Kosong',

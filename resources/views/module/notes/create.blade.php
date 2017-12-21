@@ -21,7 +21,7 @@
                   </div>
                   <div class="x_content">
                     <br />
-					{!! Form::open(['route'=>'agenda.store', 'files' => true, 'class'=> 'form-horizontal form-label-left']) !!}
+					{!! Form::open(['route'=>'notes.store', 'files' => true, 'class'=> 'form-horizontal form-label-left']) !!}
 						@include('module.notes._form')
 					{!! Form::close() !!}
                   </div>

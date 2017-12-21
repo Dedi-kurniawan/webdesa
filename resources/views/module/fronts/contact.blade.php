@@ -5,9 +5,10 @@
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <title>Aquarius - Educational HTML Template</title>
+    <title>Desa sukajadi</title>
 
-    <meta name="author" content="themesflat.com">
+    <meta name="csrf-token" content="{{ csrf_token() }}"> 
+    {{-- <title>{{ config('app.name', 'Desa Sukajadi') }}</title> --}}
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -63,7 +64,6 @@
             </div><!-- /.row -->  
         </div><!-- /.container -->                      
     </div><!-- /.page-title -->
-
     <!-- Flat contact -->
     <section class="flat-row pad-bottom0px">
         <div class="container">

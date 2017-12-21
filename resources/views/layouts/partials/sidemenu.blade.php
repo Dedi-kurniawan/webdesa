@@ -1,18 +1,18 @@
       <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Desa Sukajadi</span></a>
+              <a href="#" class="site_title"><span>Desa Sukajadi km.16</span></a>
             </div>
 
             <div class="clearfix"></div>
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="{{ asset('images/img.jpg') }}" alt="..." class="img-circle profile_img">
+                <img src="{{ asset('images/admin.png') }}" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>John Doe</h2>
+                <h2>{{ Auth::user()->name }}</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -25,13 +25,19 @@
                 <h3>General</h3>
                 <ul class="nav side-menu">
                   <li><a href="{{ url('/home') }}"><i class="fa fa-home"></i> Home </a></li>
+                  <li><a href="{{ route('perangkatdesa.index') }}"><i class="fa fa-user"></i> Perangkat Desa </a></li>
                   <li><a href="{{ route('about.index') }}"><i class="fa fa-university"></i> Profile Desa </a></li>
+
+                  @can('view_layanandesa')
                   <li><a><i class="fa fa-book"></i> Layanan Desa <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="chartjs.html">Layanan Perijinan</a></li>
-                      <li><a href="chartjs2.html">Layanan Kependudukan</a></li>
+                      <li><a href="{{ route('perijinan.index') }}">Layanan Perizinan</a></li>
+                      <li><a href="{{ route('kependudukan.index') }}">Layanan Kependudukan</a></li>
                     </ul>
                   </li>
+                  @endcan
+
+                  @can('view_berita')
                   <li><a href="{{ route('banner.index') }}"><i class="fa fa-file-photo-o"></i>Banner</a></li>
                   <li><a><i class="fa fa-file-text"></i>Berita Desa<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -39,27 +45,42 @@
                       <li><a href="{{ route('post.index') }}">Post</a></li>
                     </ul>
                   </li>
-                  <li><a href="{{ route('agenda.index') }}"><i class="fa fa-calendar-check-o"></i> Agenda </a></li>
+                  @endcan
+
+                  @can('view_agenda')
+                  <li><a href="{{ route('notes.index') }}"><i class="fa fa-calendar-check-o"></i>Agenda </a></li>
+                  @endcan
                 </ul>
               </div>
+
+              @can('view_surat')
               <div class="menu_section">
                 <h3>Management Surat</h3>
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-envelope"></i> Surat <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="e_commerce.html">Surat Masuk</a></li>
-                      <li><a href="projects.html">Surat Keluar</a></li>
+                      <li><a href="{{ route('suratmasuk.index') }}">Surat Masuk</a></li>
+                      <li><a href="{{ route('suratkeluar.index') }}">Surat Keluar</a></li>
                     </ul>
                   </li>
                 </ul>
               </div>
+              @endcan
+
+              @can('view_users')
               <div class="menu_section">
                 <h3>Management User</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-users"></i> Users </a>
+                  <li><a><i class="fa fa-users"></i> User <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{ route('user.index') }}">User</a></li>
+                      <li><a href="{{ route('role.index') }}">Role</a></li>
+                      <li><a href="{{ route('permission.index') }}">Permission</a></li>
+                    </ul>
                   </li>
                 </ul>
               </div>
+              @endcan
 
             </div>
             <!-- /sidebar menu -->

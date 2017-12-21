@@ -6,32 +6,32 @@
           <div class="row tile_count">
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-envelope"></i> Total Surat Masuk</span>
-              <div class="count">200</div>
+              <div class="count">{{ $suratmasukTotal }}</div>
               <span class="count_bottom"><i class="green"> Surat</i></span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-envelope"></i> Total Surat Keluar</span>
-              <div class="count">230</div>
+              <div class="count">{{ $suratkeluarTotal }}</div>
               <span class="count_bottom"><i class="green"> Surat </i></span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-envelope"></i> Total Surat</span>
-              <div class="count">1,019</div>
+              <div class="count">{{ $totalAll }}</div>
               <span class="count_bottom"><i class="green"> Dokument</i></span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-file-text"></i> Total Blog</span>
-              <div class="count">300</div>
+              <div class="count">{{ $postTotal }}</div>
              <span class="count_bottom"><i class="green"> Post</i></span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-calendar-check-o"></i> Total Agenda</span>
-              <div class="count">321</div>
+              <div class="count">{{ $agendaTotal }}</div>
               <span class="count_bottom"><i class="green"> Agenda</i></span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-user"></i> Total User</span>
-              <div class="count">22</div>
+              <div class="count">{{ $userTotal }}</div>
               <span class="count_bottom"><i class="green"> User</i></span>
             </div>
           </div>
@@ -80,7 +80,7 @@
                             <a>Pilih Tambah Untuk mengupload data, isi Form sesuai dengan yang di inginkan</a>
                           </h2>
                           <p class="excerpt">
-                            Select Word or Excel Sub Menu To upload according to the data you want to upload
+                           Select Add To upload the data, fill in the Form as desired
                           </p>                  
                         </div>
                       </div>
@@ -97,7 +97,7 @@
                             <a>Pilih Edit Untuk mengganti data yang  upload, ganti isi form sesuai yang di inginkan</a>
                           </h2>
                           <p class="excerpt">
-                            Fill in the data in the column in accordance with the data of each department's tasks
+                            Select Edit To replace the uploaded data, change the contents of the form as desired
                           </p>
                         </div>
                       </div>
@@ -114,7 +114,7 @@
                             <a>Pilih  Hapus sesuai dengan colom yang ingin di hapus</a>
                           </h2>
                           <p class="excerpt">
-                            Fill in the data in the column in accordance with the data of each department's tasks
+                            Select Delete according to the colom you want to delete
                           </p>
                         </div>
                       </div>

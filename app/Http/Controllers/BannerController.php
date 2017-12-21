@@ -133,7 +133,7 @@ class BannerController extends Controller
         return redirect('route'('banner.index'));
     }
 
-    private $extensionList = array("jpeg", "jpg", "gif");
+    // private $extensionList = array("jpeg", "jpg", "gif");
 
     public function saveImage(UploadedFile $image)
     {   

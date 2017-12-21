@@ -20,7 +20,17 @@ class Note extends Model
         {
             return url('/images/notes/' . $this->image);
         } else {
-            return url('/images/notes/noimage.png');
+            return url('/images/notes/noimg.png');
+        }
+    }
+
+    public function getImageTumbAttribute()
+    {
+        if ($this->image !== NULL) 
+        {
+            return url('/images/notes/tumb_' . $this->image);
+        } else {
+            return url('/images/notes/noimg.png');
         }
     }
 

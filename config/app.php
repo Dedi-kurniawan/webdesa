@@ -180,7 +180,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         GrahamCampbell\Markdown\MarkdownServiceProvider::class,
         App\Providers\MenuServiceProvider::class,
-
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
     ],
 
@@ -234,6 +234,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
 

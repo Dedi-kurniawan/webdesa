@@ -41,16 +41,16 @@ $(document).ready(function() {
                         '<a href="#" class="sw-dark">WIDE</a>' +
                     '</div>'+                      
                     '<div class="sw-pattern pattern"><h3>Background pattern:</h3>'+
-                        '<a href="#" class="sw-pattern" data-image="images/pattern/1.png"><img src="images/pattern/1.png" alt="image"></a>' +
-                        '<a href="#" class="sw-pattern" data-image="images/pattern/2.png"><img src="images/pattern/2.png" alt="image"></a>' +
-                        '<a href="#" class="sw-pattern" data-image="images/pattern/3.png"><img src="images/pattern/3.png" alt="image"></a>' +
-                        '<a href="#" class="sw-pattern" data-image="images/pattern/4.png"><img src="images/pattern/4.png" alt="image"></a>' +
-                        '<a href="#" class="sw-pattern" data-image="images/pattern/5.png"><img src="images/pattern/5.png" alt="image"></a>' +
-                        '<a href="#" class="sw-pattern" data-image="images/pattern/6.png"><img src="images/pattern/6.png" alt="image"></a>' +
-                        '<a href="#" class="sw-pattern" data-image="images/pattern/7.png"><img src="images/pattern/7.png" alt="image"></a>' +
-                        '<a href="#" class="sw-pattern" data-image="images/pattern/8.png"><img src="images/pattern/8.png" alt="image"></a>' +
-                        '<a href="#" class="sw-pattern" data-image="images/pattern/9.png"><img src="images/pattern/9.png" alt="image"></a>' +
-                        '<a href="#" class="sw-pattern" data-image="images/pattern/10.png"><img src="images/pattern/10.png" alt="image"></a>' +
+                        '<a href="#" class="sw-pattern" data-image="front/images/pattern/1.png"><img src="front/images/pattern/1.png" alt="image"></a>' +
+                        '<a href="#" class="sw-pattern" data-image="front/images/pattern/2.png"><img src="front/images/pattern/2.png" alt="image"></a>' +
+                        '<a href="#" class="sw-pattern" data-image="front/images/pattern/3.png"><img src="front/images/pattern/3.png" alt="image"></a>' +
+                        '<a href="#" class="sw-pattern" data-image="front/images/pattern/4.png"><img src="front/images/pattern/4.png" alt="image"></a>' +
+                        '<a href="#" class="sw-pattern" data-image="front/images/pattern/5.png"><img src="front/images/pattern/5.png" alt="image"></a>' +
+                        '<a href="#" class="sw-pattern" data-image="front/images/pattern/6.png"><img src="front/images/pattern/6.png" alt="image"></a>' +
+                        '<a href="#" class="sw-pattern" data-image="front/images/pattern/7.png"><img src="front/images/pattern/7.png" alt="image"></a>' +
+                        '<a href="#" class="sw-pattern" data-image="front/images/pattern/8.png"><img src="front/images/pattern/8.png" alt="image"></a>' +
+                        '<a href="#" class="sw-pattern" data-image="front/images/pattern/9.png"><img src="front/images/pattern/9.png" alt="image"></a>' +
+                        '<a href="#" class="sw-pattern" data-image="front/images/pattern/10.png"><img src="front/images/pattern/10.png" alt="image"></a>' +
                     '</div>'+               
                   '<div class="clearfix"></div>'+
                '</div>'+

@@ -7,7 +7,8 @@
     {{-- <script>tinymce.init({ selector:'textarea' });</script> --}}
 
     <meta name="csrf-token" content="{{ csrf_token() }}"> 
-    <title>{{ config('app.name', 'Desa Sukajadi') }}</title>
+    {{-- <title>{{ config('app.name', 'Desa Sukajadi') }}</title> --}}
+    <title>Desa Sukajadi km.16</title>
 
     <!-- Bootstrap -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">

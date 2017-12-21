@@ -62,7 +62,7 @@ class NoteController extends Controller
             'message'=>'<h4><i class="icon fa fa-check"></i> Berhasil !</h4>agenda '.$notes->title.' telah di Tambah.'
         ]);
 
-        return redirect(route ('agenda.index'));
+        return redirect(route ('notes.index'));
     }
 
     /**
@@ -95,7 +95,7 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(NoteRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $notes = Note::find($id);
         $data = $request->only(['title', 'content', 'slug', 'image', 'start_at', 'finish_at', 'lokasi']);
@@ -112,7 +112,7 @@ class NoteController extends Controller
             'level'=>'info',
             'message'=>'<h4><i class="icon fa fa-check"></i> Berhasil !</h4> agenda '.$notes->title.' telah di Update.'
         ]);
-        return redirect(route ('agenda.index'));
+        return redirect(route ('notes.index'));
     }
 
     /**
@@ -131,7 +131,7 @@ class NoteController extends Controller
             'level'=>'danger',
             'message'=>'<h4><i class="icon fa fa-trash-o"></i> Berhasil !</h4> agenda '.$notes->title.' telah di hapus.'
         ]);
-        return redirect('route'('agenda.index'));
+        return redirect('route'('notes.index'));
     }
 
     public function saveImage(UploadedFile $image)
@@ -141,15 +141,24 @@ class NoteController extends Controller
         $img = Image::make($_FILES['image']['tmp_name']);
         $img->resize(272, 203);
         $path_dir = base_path() . '/public/images/notes/'.$filename;
-        $img->save($path_dir);
+        $success = $img->save($path_dir);
+
+        if ($success) 
+        {
+           $img = Image::make($_FILES['image']['tmp_name']);
+           $img->resize(1920, 920);
+           $thumbnail = base_path() . '/public/images/notes/tumb_'.$filename;
+           $img->save($thumbnail);
+        }
         return $filename;
     }
 
     public function deleteImage($filename)
     {
-        $path = public_path() . DIRECTORY_SEPARATOR . 'images/notes' 
+       $path = public_path() . DIRECTORY_SEPARATOR . 'images/notes' 
             . DIRECTORY_SEPARATOR . $filename;
+       $thumbnail = base_path() . '/public/images/notes/tumb_'.$filename;
 
-        return File::delete($path);
+        return File::delete($path, $thumbnail);
     }
 }

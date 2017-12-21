@@ -15,7 +15,7 @@
             </div>
 
             <div class="x_content"><br />
-              {!! Form::model($notes, ['route' => ['agenda.update', $notes->id], 'files' => true, 'method' => 'put', 'class' => 'form-horizontal']) !!}
+              {!! Form::model($notes, ['route' => ['notes.update', $notes->id], 'files' => true, 'method' => 'put', 'class' => 'form-horizontal']) !!}
                   @include('module.notes._form')
               {!! Form::close() !!}
             </div>

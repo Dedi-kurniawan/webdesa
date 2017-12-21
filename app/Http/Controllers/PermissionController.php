@@ -3,17 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Permission;
 
-class LetterController extends Controller
+class PermissionController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    // public function __construct()
+    // {
+    //     $this->middleware('role:Admin');
+    // }
+    
     public function index()
     {
-        //
+        $permission = Permission::orderBy('name', 'asc')->get();
+        return view('module.permission.index', compact('permission'));
     }
 
     /**
@@ -23,7 +30,7 @@ class LetterController extends Controller
      */
     public function create()
     {
-        //
+        return view('module.permission.create');
     }
 
     /**
@@ -34,7 +41,16 @@ class LetterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $permission = new Permission();
+        $this->validate($request,
+            [
+            'name'        =>'required ',       
+            ]
+            );
+
+      $data= $request->all();
+      Permission::create($data);
+      return redirect( route('permission.index'));
     }
 
     /**

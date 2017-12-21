@@ -1558,7 +1558,7 @@ img.tp-slider-alternative-image	{	width:100%; height:auto;}
 /************************************
 		-	TP BANNER TIMER		-
 *************************************/
-.tp-bannertimer								{	width:100%; height:10px; background:url(../images/slides/timer.png);position:absolute; z-index:200;top:0px}
+.tp-bannertimer								{	width:100%; height:10px; background:url(../front/images/slides/timer.png);position:absolute; z-index:200;top:0px}
 .tp-bannertimer.tp-bottom					{	bottom:0px;height:5px; top:auto}
 
 

@@ -27,7 +27,10 @@
                   <div class="x_title">
                     <h2>Banner Desa</h2>
                     <ul class="nav navbar-right panel_toolbox">
+                      @can('tambah_banner')
                        <a href="{{ route('banner.create') }}"><button class="btn btn-primary btn-md">Tambah</button></a>
+                      @endcan
+                      
                     </ul>
                     <div class="clearfix"></div>
                   </div>
@@ -50,8 +53,8 @@
                       <tbody>
                         <tr>
                           <th scope="row">{{ $no++ }}</th>
-                          <td>{{ $ben->TitleAdmin }}</td>
-                          <td>{{ $ben->ContentAdmin }}</td>
+                          <td>{!! substr($ben->title,0,20) !!}</td>
+                          <td>{!! substr($ben->content,0,39) !!}</td>
                           <td>{{ $ben->StatusAdmin }}</td>
                           <td>
                             <a href="{{ url($ben->ImagePath) }}" target="blank" class="btn btn-success btn-xs"><i class="fa fa-file-photo-o"></i> Gambar</a>
@@ -59,9 +62,14 @@
                           <td>{{ $ben->created_at }}</td>
                           <td>
                             {!! Form::open(['route' => ['banner.destroy', $ben->id], 'method' => 'DELETE']) !!}
+                            @can('edit_banner')
                             <a href="{{ route ('banner.edit',$ben->id) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                            @endcan
+
+                            @can('hapus_banner')
                             <button type="submit"  class="btn btn-danger btn-xs" onclick="return confirm('Apakah kamu yakin ingin Menghapus data ini')" ><i class="fa fa-trash-o"></i> Hapus </a>
                             </button>
+                            @endcan
                             {!! Form::close() !!}
                           </td>
                         </tr>

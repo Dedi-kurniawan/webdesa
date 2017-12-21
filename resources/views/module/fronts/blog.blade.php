@@ -10,8 +10,8 @@
                         <h1 class="title">SELAMAT DATANG DI BLOG KAMI</h1>
                         <div class="breadcrumbs">
                             <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li>Blog</li>
+                                <li><a href="#">Home</a></li>
+                                <li>Categori</li>
                             </ul>                   
                         </div>
                     </div><!-- /.page-title-captions --> 
@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="title-section style2">
-                        <h1 class="title">Berita Terkini Desa Sukajadi <br><h3>Kec.Pujud Kab.Rokan Hilir</h3></h1>
+                        <h1 class="title">Blog Desa Sukajadi KM.16<br><h3>Kec.Pujud Kab.Rokan Hilir</h3></h1>
                         <div class="desc">
                             <p>Menyajikan semua berita terkini tentang desa</p>
                         </div>
@@ -47,14 +47,14 @@
                 <div class="col-md-3 col-sm-6 col-xs-6">
                     <div class="flat-courses style1">
                         <div class="courses-thumbnail">
-                            <a href="course_single.html"><img src="{{ $blo->ImagePath}}" alt="image"></a>
+                            <a href="{{ route('blogpost', $blo->slug) }}"><img src="{{ $blo->ImagePath}}" alt="image"></a>
                             <div class="courses-description">
-                                <p class="desc">{!! substr($blo->content,0,100) !!}...</p>
+                                <p class="desc">{!! $blo->title !!}...
                             </div> 
-                            <a class="courses-viewmore" href="course_single.html">Read more</a>
+                            <a class="courses-viewmore" href="{{ route('blogpost', $blo->slug) }}">Read more</a>
                         </div>
                         <div class="courses-content">
-                            <a href="course_single.html"><h6 class="courses-topic">{{ $blo->TitleAdmin }}</h6></a>
+                            <a href="{{ route('blogpost', $blo->slug) }}"><h6 class="courses-topic">{{ $blo->TitleAdmin }}</h6></a>
                         </div>
                             <ul>
                                <li class="fa fa-pencil-square-o">&nbsp;<a href="#">{{ $blo->created_at }}</a></li>

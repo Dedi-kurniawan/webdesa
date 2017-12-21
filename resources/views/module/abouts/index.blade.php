@@ -29,7 +29,9 @@
                   <div class="x_title">
                     <h2>Profile Desa</h2>
                     <ul class="nav navbar-right panel_toolbox">
+                  {{--     @can('tambah_profiledesa')
                        <a href="{{ route('about.create') }}"><button class="btn btn-primary btn-md">Tambah</button></a>
+                      @endcan --}}
                     </ul>
                     <div class="clearfix"></div>
                   </div>
@@ -52,16 +54,23 @@
                         <tr>
                           <th scope="row">{{ $no++ }}</th>
                           <td>{{ $ab->TitleAdmin }}</td>
-                          <td>{{ $ab->ContentAdmin }}</td>
+                          <td>{!! strip_tags(substr($ab->content,0,150)) !!}...</td>
                           <td>
                             <a href="{{ url($ab->ImagePath) }}" target="blank" class="btn btn-success btn-xs"><i class="fa fa-file-photo-o"></i> Gambar</a>
                           </td>
                           <td>{{ $ab->created_at }}</td>
                           <td>
-                            {!! Form::open(['route' => ['about.destroy', $ab->id], 'method' => 'DELETE']) !!}
+                          {{--   {!! Form::open(['route' => ['about.destroy', $ab->id], 'method' => 'DELETE']) !!} --}}
+
+                            @can('edit_profiledesa')
                             <a href="{{ route ('about.edit',$ab->id) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                            @endcan
+
+                            {{-- @can('hapus_profiledesa')
                             <button type="submit"  class="btn btn-danger btn-xs" onclick="return confirm('Apakah kamu yakin ingin Menghapus data ini')" ><i class="fa fa-trash-o"></i> Hapus </a>
                             </button>
+                            @endcan --}}
+
                             {!! Form::close() !!}
                           </td>
                         </tr>

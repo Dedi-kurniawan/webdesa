@@ -17,7 +17,7 @@ class MenuServiceProvider extends ServiceProvider
     {
         view()->composer('layouts.aquarius.patrials.header', function($view){
             $categories = Category::with(['posts'])->orderBy('title', 'asc')->get();
-            return $view->with('categories', $categories);
+        return $view->with('categories', $categories);
         });
     }
 

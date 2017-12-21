@@ -24,10 +24,11 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'         => 'required|unique:posts,title',
+            'title'         => 'required',
             'content'       => 'required',
+            'image'         => 'image|mimes:png,jpg,jpeg',
             'category_id'   => 'required',
-            'user_id'     => 'required'
+            'user_id'       => 'required'
 
         ];
     }
@@ -36,7 +37,7 @@ class PostRequest extends FormRequest
     {
         return [
             'title.required'        => 'Judul Dilarang Kosong',
-            'title.unique'        => 'Judul Dilarang Sama',
+            'image.image'           => 'Extensi Gambar Harus png,jpeg,jpg',
             'content.required'      => 'Conten Dilarang Kosong',
             'category_id.required'  => 'Pilih Salah Satu Category',
             'user_id.required'    => 'Login dulu',

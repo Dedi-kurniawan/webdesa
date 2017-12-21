@@ -64,20 +64,20 @@
                             @foreach($agenda as $age)
                             <li>
                                 <div class="thumb">
-                                    <a href="course_single.html"><img src="{{ $age->ImagePath }}" alt="image"></a>
+                                    <a href="{{ route('agendapost', $age->slug) }}"><img src="{{ $age->ImagePath }}" alt="image"></a>
                                 </div>
                                 <div class="list-content">
                                     <div class="courses-content">
-                                        <h6 class="courses-topic"><a href="#">{{ $age->title }}</a></h6>
+                                        <h6 class="courses-topic"><a href="{{ route('agendapost', $age->slug) }}">{{ $age->title }}</a></h6>
                                     </div>
                                     <ul>
                                         <li class="fa fa-calendar">&nbsp;<a href="#">{{ $age->StartAdmin }}</a></li>
                                         <li class="fa fa-minus">&nbsp;</li>
                                         <li class="fa fa-calendar">&nbsp; <a href="#">{{ $age->FinishAdmin }}</a></li>
-                                         <li class="fa fa-location-arrow">&nbsp; <a href="#">{{ $age->lokasi }}</a></li>
+                                        <li class="fa fa-location-arrow">&nbsp; <a href="#">{{ $age->lokasi }}</a></li>
                                     </ul>
                                     <div class="content">
-                                      {!! $age->content !!}
+                                      {!! substr($age->content,0,250) !!}
                                     </div>
                                 </div>
                             </li>
